@@ -1,21 +1,28 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
+
+const Calculator = () => import('./views/Calculator.vue')
+const Websocket = () => import('./views/Websocket.vue')
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
       name: 'home',
-      component: Home
+      redirect: 'calculator'
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
+      path: '/calculator',
+      name: 'calculator',
+      component: Calculator
+    },
+    {
+      path: '/websocket',
+      name: 'websocket',
+      component: Websocket
     }
   ]
 })
