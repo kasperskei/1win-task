@@ -80,6 +80,9 @@ export default {
     this.ws.onclose = this.onClose
     this.ws.onmessage = this.onMessage
     this.ws.onerror = this.onError
+  },
+  beforeDestroy() {
+    this.ws.close()
   }
 }
 </script>
